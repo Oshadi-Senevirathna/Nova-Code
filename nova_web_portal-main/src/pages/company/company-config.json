@@ -1,0 +1,34 @@
+{
+    "name": "Tenant",
+    "single": "tenant",
+    "multiple": "tenants",
+    "fields": [
+        {
+            "name": "instance_name",
+            "numeric": false,
+            "label": "Company Name",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "address_1",
+            "numeric": false,
+            "label": "Address Line 1",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "address_2",
+            "numeric": false,
+            "label": "Address Line 2",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "name": "VNF Template",
+    "single": "vm template",
+    "multiple": "vm templates",
+    "fields": [
+        {
+            "name": "instance_name",
+            "numeric": false,
+            "label": "Template Name",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        }
+    ]
+}

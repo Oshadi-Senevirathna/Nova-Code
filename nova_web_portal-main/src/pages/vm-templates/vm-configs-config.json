@@ -1,0 +1,34 @@
+{
+    "name": "VNF Config",
+    "single": "vm config",
+    "multiple": "vm configs",
+    "fields": [
+        {
+            "name": "vm_image_id",
+            "numeric": false,
+            "label": "VNF Image Name",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        },
+        {
+            "name": "memory",
+            "numeric": false,
+            "label": "Memory(MB)",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        },
+        {
+            "name": "vcpu",
+            "numeric": false,
+            "label": "vCPU",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        }
+    ]
+}

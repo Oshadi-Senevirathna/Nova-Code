@@ -1,0 +1,43 @@
+{
+    "name": "Jobs",
+    "single": "job",
+    "multiple": "job",
+    "fields": [
+        {
+            "name": "job_name",
+            "numeric": false,
+            "label": "Job Name",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        },
+        {
+            "name": "status",
+            "numeric": false,
+            "label": "Status",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "created_at",
+            "numeric": false,
+            "label": "Created at",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "error",
+            "numeric": false,
+            "label": "Error",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        }
+    ]
+}

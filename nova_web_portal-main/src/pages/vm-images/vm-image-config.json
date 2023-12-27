@@ -1,0 +1,47 @@
+{
+    "name": "VNF Image",
+    "single": "vm image",
+    "multiple": "vm images",
+    "fields": [
+        {
+            "name": "instance_name",
+            "numeric": false,
+            "label": "VNF Name",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "formFillRequired": true
+        },
+        {
+            "name": "category",
+            "numeric": false,
+            "label": "Category",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "formFillRequired": true
+        },
+        {
+            "name": "filename",
+            "numeric": false,
+            "label": "Filename",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "formFillRequired": true
+        },
+        {
+            "name": "created_by",
+            "numeric": false,
+            "label": "Uploaded by",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "formFillRequired": true
+        }
+    ]
+}

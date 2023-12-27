@@ -1,0 +1,36 @@
+{
+    "name": "Inventory Logs",
+    "single": "inventory log",
+    "multiple": "inventory logs",
+    "fields": [
+        {
+            "name": "device_id",
+            "numeric": false,
+            "label": "Device",
+            "options": {
+                "filter": false,
+                "display": false,
+                "sort": false,
+                "viewColumns": false
+            }
+        },
+        {
+            "name": "timestamp",
+            "numeric": false,
+            "label": "Timestamp",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "details",
+            "numeric": false,
+            "label": "Details",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,172 @@
+{
+    "settingCategories": [
+        {
+            "categoryName": "password policies",
+            "categoryDisplayName": "Password Policy Settings",
+            "categoryDescription": "Password policies settings of SP module",
+            "settings": [
+                {
+                    "name": "min_of_capital_letters",
+                    "displayName": "Capital letters",
+                    "description": "Minimum number of capital letters mandatory in passwords",
+                    "type": "text-input",
+                    "data": {
+                        "defaultValue": "0"
+                    }
+                },
+                {
+                    "name": "min_of_simple_letters",
+                    "displayName": "Simple letters",
+                    "description": "Minimum number of simple letters mandatory in passwords",
+                    "type": "text-input",
+                    "data": {
+                        "defaultValue": "0"
+                    }
+                },
+                {
+                    "name": "min_of_special_characters",
+                    "displayName": "Special characters",
+                    "description": "Minimum number of special characters mandatory in passwords",
+                    "type": "text-input",
+                    "data": {
+                        "defaultValue": "0"
+                    }
+                },
+                {
+                    "name": "min_of_digits",
+                    "displayName": "Digits",
+                    "description": "Minimum number of digits mandatory in passwords",
+                    "type": "text-input",
+                    "data": {
+                        "defaultValue": "0"
+                    }
+                },
+                {
+                    "name": "min_length",
+                    "displayName": "Length",
+                    "description": "Minimum length mandatory in passwords",
+                    "type": "text-input",
+                    "data": {
+                        "defaultValue": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "categoryName": "login policies",
+            "categoryDisplayName": "Login Policies",
+            "categoryDescription": "Login policies of the SP Module",
+            "settings": [
+                {
+                    "name": "password_retries_allowed",
+                    "displayName": "Number of password retries allowed",
+                    "type": "text-input",
+                    "data": {
+                        "defaultValue": "5"
+                    }
+                },
+                {
+                    "name": "password_retries_window",
+                    "displayName": "Time window of password retries allowed(in milliseconds)",
+                    "type": "text-input",
+                    "data": {
+                        "defaultValue": "360000"
+                    }
+                },
+                {
+                    "name": "password_lockout_time",
+                    "displayName": "Password lockout time period(in milliseconds)",
+                    "type": "text-input",
+                    "data": {
+                        "defaultValue": "360000"
+                    }
+                }
+            ]
+        },
+        {
+            "categoryName": "vm category",
+            "categoryDisplayName": "VNF Categories",
+            "categoryDescription": "List of VNF categories",
+            "settings": [
+                {
+                    "name": "vm_category",
+                    "displayName": "Add or remove vnf categories",
+                    "type": "array",
+                    "data": {
+                        "defaultValue": []
+                    }
+                }
+            ]
+        },
+        {
+            "categoryName": "email settings",
+            "categoryDisplayName": "Email Settings",
+            "categoryDescription": "Email Settings of the SP Module",
+            "settings": [
+                {
+                    "name": "email_host",
+                    "displayName": "Email host",
+                    "type": "text-input",
+                    "data": {
+                        "defaultValue": "0"
+                    }
+                },
+                {
+                    "name": "email_host_password",
+                    "displayName": "Email host password",
+                    "type": "password",
+                    "data": {
+                        "defaultValue": "0"
+                    }
+                },
+                {
+                    "name": "email_port",
+                    "displayName": "Email port",
+                    "type": "text-input",
+                    "data": {
+                        "defaultValue": "0"
+                    }
+                },
+                {
+                    "name": "email_use_tls",
+                    "displayName": "TLS usage",
+                    "type": "toggle",
+                    "data": {
+                        "defaultValue": true
+                    }
+                },
+                {
+                    "name": "email_host_user",
+                    "displayName": "Host user email",
+                    "type": "text-input",
+                    "data": {
+                        "defaultValue": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "categoryName": "session settings",
+            "categoryDisplayName": "Session Settings",
+            "categoryDescription": "Session Settings of the SP Module",
+            "settings": [
+                {
+                    "name": "session_timeout",
+                    "displayName": "Session timeout",
+                    "type": "text-input",
+                    "data": {
+                        "defaultValue": "60000"
+                    }
+                },
+                {
+                    "name": "maximum_sessions",
+                    "displayName": "Maximum sessions per user",
+                    "type": "text-input",
+                    "data": {
+                        "defaultValue": "1"
+                    }
+                }
+            ]
+        }
+    ]
+}

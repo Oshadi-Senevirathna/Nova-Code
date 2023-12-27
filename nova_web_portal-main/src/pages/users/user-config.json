@@ -1,0 +1,43 @@
+{
+    "name": "Job",
+    "single": "job",
+    "multiple": "jobs",
+    "fields": [
+        {
+            "name": "instance_name",
+            "numeric": false,
+            "label": "Username",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        },
+        {
+            "name": "email",
+            "numeric": false,
+            "label": "Email Address",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        },
+        {
+            "name": "first_name",
+            "numeric": false,
+            "label": "First Name",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        },
+        {
+            "name": "last_name",
+            "numeric": false,
+            "label": "Last Name",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        }
+    ]
+}

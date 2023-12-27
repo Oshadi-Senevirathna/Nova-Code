@@ -1,0 +1,61 @@
+{
+    "name": "User Logs",
+    "single": "user log",
+    "multiple": "user logs",
+    "fields": [
+        {
+            "name": "timestamp",
+            "numeric": false,
+            "label": "Timestamp",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        },
+        {
+            "name": "user",
+            "numeric": false,
+            "label": "User",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        },
+        {
+            "name": "collection",
+            "numeric": false,
+            "label": "Collection",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        },
+        {
+            "name": "action",
+            "numeric": false,
+            "label": "Action",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        },
+        {
+            "name": "entry_name",
+            "numeric": false,
+            "label": "Entry name",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        },
+        {
+            "name": "entry",
+            "numeric": false,
+            "label": "Entry",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        }
+    ]
+}

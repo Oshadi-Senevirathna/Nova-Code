@@ -1,0 +1,16 @@
+{
+    "name": "Tenant",
+    "single": "tenant",
+    "multiple": "tenants",
+    "fields": [
+        {
+            "name": "instance_name",
+            "numeric": false,
+            "label": "Tenant Name",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        }
+    ]
+}

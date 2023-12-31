@@ -142,7 +142,6 @@ class AuthService extends AbstractAuthService {
         await fetch(`${config.nodeURL}/logout`, requestOptions);
         return cb();
     }
-
     async addUser(user) {
         const requestOptions = {
             method: 'POST',

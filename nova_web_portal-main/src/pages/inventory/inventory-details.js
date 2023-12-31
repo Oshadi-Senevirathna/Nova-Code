@@ -17,6 +17,9 @@ const DetailsPage = ({ title }) => {
     const [vms, setVms] = useState();
     const params = useParams();
     const navigate = useNavigate();
+    const [hypervisorFilter, setHypervisorFilter] = useState('');
+    const [timeRangeFilter, setTimeRangeFilter] = useState('');
+    const [ipRangeFilter, setIpRangeFilter] = useState('');
 
     useEffect(() => {
         document.title = title;
@@ -24,22 +27,36 @@ const DetailsPage = ({ title }) => {
 
     useEffect(() => {
         if (params.UUID) {
-            serviceFactoryInstance.dataLoaderService.getInstance(params.UUID, 'device').then((data) => {
-                if (data.status) {
-                    setDevice(data.instance);
-                }
-            });
+            serviceFactoryInstance.dataLoaderService
+                .getInstance(params.UUID, hypervisorFilter, timeRangeFilter, ipRangeFilter, 'device')
+                .then((data) => {
+                    if (data.status) {
+                        setDevice(data.instance);
+                    }
+                });
 
             const findBy = `["device_id"]`;
             const value = `["${params.UUID}"]`;
             const direction = '["0"]';
             serviceFactoryInstance.dataLoaderService
-                .getFilteredAndSortedInstances('inventory_vm', undefined, undefined, undefined, undefined, findBy, value, direction)
+                .getFilteredAndSortedInstances(
+                    'inventory_vm',
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    hypervisorFilter,
+                    timeRangeFilter,
+                    ipRangeFilter,
+                    findBy,
+                    value,
+                    direction
+                )
                 .then((data) => {
                     setVms(data.instances);
                 });
         }
-    }, [params.UUID, serviceFactoryInstance.cache]);
+    }, [params.UUID, serviceFactoryInstance.cache, hypervisorFilter, timeRangeFilter, ipRangeFilter]);
 
     return (
         <>
@@ -126,6 +143,18 @@ const DetailsPage = ({ title }) => {
                                     <Typography>{device.hypervisor ? device.hypervisor : ''}</Typography>
                                 </Grid>
                             </Grid>
+                            {/* sorting */}
+                            <TextField
+                                label="Hypervisor Filter"
+                                value={hypervisorFilter}
+                                onChange={(e) => setHypervisorFilter(e.target.value)}
+                            />
+                            <TextField
+                                label="Time Range Filter"
+                                value={timeRangeFilter}
+                                onChange={(e) => setTimeRangeFilter(e.target.value)}
+                            />
+                            <TextField label="IP Range Filter" value={ipRangeFilter} onChange={(e) => setIpRangeFilter(e.target.value)} />
                         </CardContent>
                     </Card>
                 </>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import serviceFactoryInstance from 'framework/services/service-factory';
 // material-ui
 import {
@@ -24,6 +25,9 @@ import { Formik } from 'formik';
 import AnimateButton from 'components/@extended/AnimateButton';
 // assets
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+//email validation
+import { fromEvent } from 'rxjs';
+import { debounceTime, map } from 'rxjs/operators';
 
 // ============================|| FIREBASE - LOGIN ||============================ //
 
@@ -32,6 +36,10 @@ const AuthLogin = () => {
     const [error, setError] = React.useState('');
     const [showPassword, setShowPassword] = React.useState(false);
     const navigate = useNavigate();
+
+    // making changes for the validation of the email
+    const [isValidEmail, setIsValidEmail] = useState(true);
+
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
     };
@@ -40,23 +48,49 @@ const AuthLogin = () => {
         event.preventDefault();
     };
 
-    /* const login = (event) => {
-        setError('');
-        serviceFactoryInstance.authService.login(username, password, (status, reason) => {
-            if (status) {
-                let destRoute = JSON.parse(localStorage.getItem('destRoute'));
-                if (destRoute !== null && destRoute !== undefined && destRoute !== '') {
-                    localStorage.removeItem('destRoute');
-                    history.push(destRoute);
-                } else {
-                    history.push('/');
-                }
-            } else {
-                setError(reason);
-            }
-        });
+    // const login = (event) => {
+    //     setError('');
+    //     serviceFactoryInstance.authService.login(username, password, (status, reason) => {
+    //         if (status) {
+    //             let destRoute = JSON.parse(localStorage.getItem('destRoute'));
+    //             if (destRoute !== null && destRoute !== undefined && destRoute !== '') {
+    //                 localStorage.removeItem('destRoute');
+    //                 history.push(destRoute);
+    //             } else {
+    //                 history.push('/');
+    //             }
+    //         } else {
+    //             setError(reason);
+    //         }
+    //     });
+    // };
+
+    // making changes for the validation of the email
+    useEffect(() => {
+        const emailInput = document.getElementById('email-login');
+
+        if (emailInput) {
+            const emailInputObservable = fromEvent(emailInput, 'input').pipe(
+                debounceTime(300), // Adjust the debounce time as needed
+                map((event) => event.target.value)
+            );
+
+            const subscription = emailInputObservable.subscribe((email) => {
+                const isValid = validateEmail(email);
+                setIsValidEmail(isValid);
+            });
+            return () => {
+                // Clean up
+                subscription.unsubscribe();
+            };
+        }
+    }, []);
+
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     };
- */
+
     return (
         <>
             <Formik
@@ -102,13 +136,15 @@ const AuthLogin = () => {
                                         onChange={handleChange}
                                         placeholder="Enter email address"
                                         fullWidth
-                                        error={Boolean(touched.email && errors.email)}
+                                        // error={Boolean(touched.email && errors.email)}
+                                        error={Boolean(touched.email && errors.email) || !isValidEmail}
                                     />
                                     {touched.email && errors.email && (
                                         <FormHelperText error id="standard-weight-helper-text-email-login">
                                             {errors.email}
                                         </FormHelperText>
                                     )}
+                                    {!isValidEmail && <FormHelperText error>Please enter a valid email address.</FormHelperText>}
                                 </Stack>
                             </Grid>
                             <Grid item xs={12}>
@@ -158,7 +194,7 @@ const AuthLogin = () => {
                                                 size="small"
                                             />
                                         }
-                                        label={<Typography variant="h6">Keep me sign in</Typography>}
+                                        label={<Typography variant="h6">Keep me signed in</Typography>}
                                     />
                                     <Link variant="h6" component={RouterLink} to="/forgot-password" color="text.primary">
                                         Forgot Password?

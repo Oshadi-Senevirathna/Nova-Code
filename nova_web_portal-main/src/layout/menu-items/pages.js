@@ -133,6 +133,13 @@ const pages = {
             type: 'item',
             url: '/settings',
             icon: icons.SettingOutlined
+        },
+        {
+            id: 'logs',
+            title: 'Logs',
+            type: 'item',
+            url: '/logs',
+            icon: icons.UnorderedListOutlined
         }
     ]
 };

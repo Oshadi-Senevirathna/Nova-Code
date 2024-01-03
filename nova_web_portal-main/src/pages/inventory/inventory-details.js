@@ -1,16 +1,9 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import serviceFactoryInstance from 'framework/services/service-factory';
-import { Card, CardContent, Button } from '../../../node_modules/@mui/material/index';
-// material-ui
-import { Grid, Typography } from '@mui/material';
-import moment from '../../../node_modules/moment/moment';
+import { Card, CardContent, Button, Grid, Typography, TextField } from '@mui/material';
+import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
-
-// third party
-// project import
-
-// ============================|| FIREBASE - LOGIN ||============================ //
 
 const DetailsPage = ({ title }) => {
     const [device, setDevice] = useState();
@@ -23,7 +16,7 @@ const DetailsPage = ({ title }) => {
 
     useEffect(() => {
         document.title = title;
-    }, []);
+    }, [title]);
 
     useEffect(() => {
         if (params.UUID) {
@@ -159,15 +152,17 @@ const DetailsPage = ({ title }) => {
                     </Card>
                 </>
             )}
+
             {vms && vms.length > 0 && (
                 <Typography style={{ paddingTop: 30 }} variant="subtitle1">
                     VNF details
                 </Typography>
             )}
+
             {vms &&
                 vms.length > 0 &&
                 vms.map((vm) => (
-                    <Card style={{ marginBottom: 20 }}>
+                    <Card style={{ marginBottom: 20 }} key={vm.UUID}>
                         <CardContent>
                             <Typography variant="h5">VNF {vms.indexOf(vm)} :</Typography>
                             <Grid container spacing={3}>

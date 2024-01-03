@@ -35,7 +35,7 @@ router.post("/authenticate", async (req, res) => {
     });
 
   console.log(
-    `User authentication request recieved for ${request_data.username}`
+    `User authentication request recieved for ${request_data.username} , and pwd ${request_data.pwd} and token ${request_data.token}`
   );
 
   try {
@@ -167,6 +167,153 @@ router.post("/authenticate", async (req, res) => {
     res.status(500).json({ detail: "Error occured when finding user" });
   }
 });
+
+// router.post("/authenticate", async (req, res) => {
+//   const request_data = req.body;
+//   if (!request_data.username || !request_data.pwd)
+//     return res.status(400).json({
+//       status: false,
+//       reason: "Not all fields have been entered",
+//     });
+
+//   console.log(
+//     `User authentication request received for ${request_data.username} and pwd ${request_data.pwd}`
+//   );
+
+//   try {
+//     const data = await dbAccess.getInstance(
+//       USER_COLLECTION,
+//       "instance_name",
+//       request_data.username,
+//       true
+//     );
+
+//     if (!data || !data.instance) {
+//       return res.status(400).json({
+//         status: false,
+//         reason: "Invalid username",
+//       });
+//     }
+
+//     const user = data.instance;
+//     console.log(user);
+
+//     const dataWindow = await dbAccess.getInstance(
+//       SETTINGS_COLLECTION,
+//       "instance_name",
+//       "password_retries_window",
+//       true
+//     );
+//     const window = parseFloat(dataWindow.instance.value);
+
+//     const dataLockout = await dbAccess.getInstance(
+//       SETTINGS_COLLECTION,
+//       "instance_name",
+//       "password_lockout_time",
+//       true
+//     );
+//     const lockout = parseFloat(dataLockout.instance.value);
+
+//     const dataCount = await dbAccess.getInstance(
+//       SETTINGS_COLLECTION,
+//       "instance_name",
+//       "password_retries_allowed",
+//       true
+//     );
+//     const count = parseFloat(dataCount.instance.value);
+//     console.log(count);
+
+//     if (!lockout || !count || !window) {
+//       return res.status(400).json({
+//         status: false,
+//         reason: "Login policies not found",
+//       });
+//     }
+
+//     const date = Date.now();
+//     const timeout = user.last_login_failure_time
+//       ? user.last_login_failure_time + window
+//       : 0;
+//     const locked = user.locked_time ? user.locked_time : 0;
+
+//     if (date < locked) {
+//       return res.status(400).json({
+//         status: false,
+//         reason:
+//           "You exceeded the number of password retries. Please try again in a few minutes",
+//       });
+//     }
+
+//     const isMatch = await bcrypt.compare(request_data.pwd, user.pwd.toString());
+//     if (!isMatch) {
+//       if (date > timeout) {
+//         user.login_failure_count = 1;
+//         user.last_login_failure_time = date;
+//       } else {
+//         user.login_failure_count = user.login_failure_count
+//           ? user.login_failure_count + 1
+//           : 1;
+//         if (user.login_failure_count >= count) {
+//           user.locked_time = date + lockout;
+//           user.last_login_failure_time = date - window;
+//         }
+//       }
+//       console.log(user);
+//       await dbAccess.replaceInstance(
+//         USER_COLLECTION,
+//         "instance_name",
+//         user.instance_name,
+//         user,
+//         ""
+//       );
+//       return res.status(400).json({
+//         status: false,
+//         reason: "Invalid password",
+//       });
+//     }
+
+//     user.login_failure_count = 0;
+//     user.last_login_time = date;
+//     const results = await dbAccess.replaceInstance(
+//       USER_COLLECTION,
+//       "instance_name",
+//       user.instance_name,
+//       user,
+//       ""
+//     );
+//     if (results.status !== true) return res.status(400).json(results);
+
+//     const token = jwt.sign(
+//       { user: user.instance_name },
+//       process.env.JWT_SECRET,
+//       {
+//         expiresIn: process.env.JWT_SECRET_EXPIRES_IN,
+//       }
+//     );
+
+//     const session = await userSessionCreate(user.instance_name);
+//     if (!session)
+//       return res.status(400).json({
+//         status: false,
+//         reason: "Maximum active sessions exceeded",
+//       });
+
+//     userLogs(user.instance_name, "User login");
+
+//     user.pwd = "";
+//     res.set("access-control-allow-origin", "*");
+//     res.status(200).json({
+//       status: true,
+//       jwt: token,
+//       session: session,
+//       reason: "",
+//       payload: user,
+//     });
+//   } catch (err) {
+//     console.error("Error occurred during authentication:", err);
+//     res.status(500).json({ detail: "Error occurred when finding user" });
+//   }
+// });
 
 router.post("/logout", async (req, res) => {
   console.log("Logout user");

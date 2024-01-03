@@ -98,6 +98,8 @@ class AuthService extends AbstractAuthService {
         let authToken;
         let sessionID;
 
+        console.log('Authentication successful:', username, password, cb);
+
         return fetch(`${config.nodeURL}/authenticate`, requestOptions)
             .then((response) => response.json())
             .then((response) => (response.status === false ? Promise.reject(response.reason) : Promise.resolve(response)))

@@ -47,9 +47,29 @@ const InventoryLogsPages = ({ title }) => {
         }
     }
 
+    // return (
+    //     <div className={classes.root}>
+    //         <CustomDatatable entityName={ENTITY_NAME_INVENTORY_LOGS} configs={configReshaped} presetFilterValue={params.UUID} />
+    //     </div>
+    // );
+
+    const additionalFilters = [
+        { name: 'status', label: 'Status', type: 'text' }, // You might need to change the type based on your requirements
+        { name: 'hypervisor', label: 'Hypervisor', type: 'text' },
+        { name: 'timeRange', label: 'Time Range', type: 'date-range' },
+        { name: 'ipRange', label: 'IP Address Range', type: 'text' },
+        { name: 'os', label: 'OS', type: 'text' }
+    ];
+
     return (
         <div className={classes.root}>
-            <CustomDatatable entityName={ENTITY_NAME_INVENTORY_LOGS} configs={configReshaped} presetFilterValue={params.UUID} />
+            <CustomDatatable
+                entityName={ENTITY_NAME_INVENTORY_LOGS}
+                configs={configReshaped}
+                presetFilterValue={params.UUID}
+                additionalFilters={additionalFilters}
+                enablePDFExport={true} // Enable PDF export
+            />
         </div>
     );
 };

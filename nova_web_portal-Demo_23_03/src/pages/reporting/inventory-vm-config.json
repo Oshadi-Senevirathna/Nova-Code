@@ -1,0 +1,117 @@
+{
+    "name": "Device",
+    "single": "device",
+    "multiple": "devices",
+    "fields": [
+        {
+            "name": "instance_name",
+            "numeric": false,
+            "label": "Hostname",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "formFillRequired": true
+        },
+        {
+            "name": "ip_address",
+            "numeric": false,
+            "label": "IP Address",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "formFillRequired": true
+        },
+        {
+            "name": "username",
+            "numeric": false,
+            "label": "Username",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "noFormView": true
+        },
+        {
+            "name": "linux_distribution",
+            "numeric": false,
+            "label": "Linux Distribution",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "noFormView": true
+        },
+        {
+            "name": "os_version",
+            "numeric": false,
+            "label": "OS Version",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "noFormView": true
+        },
+        {
+            "name": "mac_address",
+            "numeric": false,
+            "label": "MAC Address",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "noFormView": true
+        },
+        {
+            "name": "last_active",
+            "numeric": false,
+            "label": "Online",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "noFormView": true
+        },
+        {
+            "name": "last_active",
+            "numeric": false,
+            "label": "Last seen active",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "noFormView": true
+        },
+        {
+            "name": "hypervisor",
+            "numeric": false,
+            "label": "Hypervisor",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "noFormView": true
+        },
+        {
+            "name": "vms",
+            "numeric": false,
+            "label": "VMs",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "noFormView": true
+        },
+        {
+            "name": "vms",
+            "numeric": false,
+            "label": "VMs",
+            "options": {
+                "filter": true,
+                "sort": true
+            },
+            "noFormView": true
+        }
+    ]
+}

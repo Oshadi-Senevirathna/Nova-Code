@@ -1,0 +1,16 @@
+{
+    "name": "Role",
+    "single": "role",
+    "multiple": "roles",
+    "fields": [
+        {
+            "name": "instance_name",
+            "numeric": false,
+            "label": "Role Name",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        }
+    ]
+}

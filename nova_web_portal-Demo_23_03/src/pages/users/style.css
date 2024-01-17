@@ -1,0 +1,7 @@
+/* styles.css */
+.required-label::after {
+    content: '*';
+    color: red;
+    display: inline-block;
+    margin-left: 4px; /* Adjust the margin as needed for spacing */
+}

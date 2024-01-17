@@ -1,0 +1,70 @@
+{
+    "name": "Jobs",
+    "single": "job",
+    "multiple": "job",
+    "fields": [
+        {
+            "name": "job_name",
+            "numeric": false,
+            "label": "Job Name",
+            "options": {
+                "filter": true,
+                "sort": true
+            }
+        },
+        {
+            "name": "status",
+            "numeric": false,
+            "label": "Status",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "job_progress",
+            "numeric": false,
+            "label": "Progress",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "batch_no",
+            "numeric": false,
+            "label": "Batch Number",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "scheduled_at",
+            "numeric": false,
+            "label": "Scheduled at",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "completed_at",
+            "numeric": false,
+            "label": "Completed at",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "error_reason",
+            "numeric": false,
+            "label": "Error",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        }
+    ]
+}

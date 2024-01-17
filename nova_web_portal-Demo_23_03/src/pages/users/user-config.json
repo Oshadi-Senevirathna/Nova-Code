@@ -1,0 +1,43 @@
+{
+    "name": "User",
+    "single": "user",
+    "multiple": "users",
+    "fields": [
+        {
+            "name": "instance_name",
+            "numeric": false,
+            "label": "Username",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "email",
+            "numeric": false,
+            "label": "Email Address",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "first_name",
+            "numeric": false,
+            "label": "First Name",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "last_name",
+            "numeric": false,
+            "label": "Last Name",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        }
+    ]
+}

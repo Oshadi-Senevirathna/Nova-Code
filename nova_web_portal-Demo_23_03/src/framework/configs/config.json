@@ -1,0 +1,6 @@
+{
+    "nodeURL": "http://localhost:9000",
+    "pythonURL": "http://localhost:9000",
+    "wsUrl": "ws://localhost:9000/websocket",
+    "mode": "Prod"
+}

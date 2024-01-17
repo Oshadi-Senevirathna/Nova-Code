@@ -1,0 +1,45 @@
+{
+    "name": "VNF Config",
+    "single": "vm config",
+    "multiple": "vm configs",
+    "fields": [
+        {
+            "name": "vm_template_id",
+            "numeric": false,
+            "label": "VNF Template ID",
+            "options": {
+                "filter": true,
+                "display": false,
+                "sort": false,
+                "viewColumns": false
+            }
+        },
+        {
+            "name": "vm_image_id",
+            "numeric": false,
+            "label": "VNF Image Name",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "memory",
+            "numeric": false,
+            "label": "Memory(MB)",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        },
+        {
+            "name": "vcpu",
+            "numeric": false,
+            "label": "vCPU",
+            "options": {
+                "filter": false,
+                "sort": true
+            }
+        }
+    ]
+}
